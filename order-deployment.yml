@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: orderservice-deployment
+  labels: 
+    app: orderservice
+spec: 
+  replicas: 3
+  selector: 
+    matchLabels:
+      app: orderservice-deployment
+  template: 
+    metadata:
+      labels:
+        app: orderservice-deployment
+    spec:
+      containers:
+      - env:
+        - name: ORDER_PORT
+          valueFrom:
+            configMapKeyRef:
+              key: ORDER_PORT
+              name: order-service-deplyoment-config
+        image: sunnygoel1005/orderservice:orderupdate
+        imagePullPolicy: Always
+        name: orderservice-1
+      imagePullSecrets:
+        - name: registry-secret

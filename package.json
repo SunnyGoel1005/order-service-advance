@@ -1,0 +1,17 @@
+{
+  "name": "order-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "order.js",
+  "scripts": {
+    "start": "node order.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.0",
+    "open": "^7.0.3",
+    "opentracing": "^0.14.4",
+    "tracing": "0.0.0"
+  }
+}
